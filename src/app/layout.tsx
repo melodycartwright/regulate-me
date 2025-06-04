@@ -1,6 +1,6 @@
-// src/app/layout.tsx
 import "./globals.css";
 import type { Metadata } from "next";
+import { Navbar } from "@/sections/Navbar";
 
 export const metadata: Metadata = {
   title: "Regulate Me",
@@ -14,7 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-white text-black">{children}</body>
+      <body className="bg-white text-black">
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
