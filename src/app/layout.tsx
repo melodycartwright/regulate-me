@@ -1,12 +1,12 @@
+
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { Navbar } from "@/sections/Navbar";
-import Header from "@/components/Header";
-
 import type { Metadata } from "next";
+
 export const metadata: Metadata = {
   title: "Regulate Me",
-  description: "A soft space to check in, reflect, and regulate.",
+  description: "A calming space to track your moods, wins, and thoughts.",
 };
 
 export default function RootLayout({
@@ -18,7 +18,6 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-white text-black">
         <LanguageProvider>
-          <Header/>
           <Navbar />
           {children}
         </LanguageProvider>

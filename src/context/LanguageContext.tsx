@@ -1,47 +1,68 @@
-'use client'; //needed for context updates to work in next.js app router
+"use client"; // Needed for context updates in Next.js App Router
 
-import React, {createContext, useContext, useState, ReactNode} from "react";
-import en from "@/locales/en.json";
-import sv from "@/locales/sv.json";
+import React, { createContext, useContext, useState, ReactNode } from "react";
 
-//setup what translations will be used
-const translations = {en, sv};
+// Translations directly in the file (might move to json file later)
+const translations = {
+  en: {
+    title: "Welcome",
+    mood: "Mood",
+    journal: "Journal",
+    wins: "Wins",
+    settings: "Settings",
+    language: "Language",
+    english: "English",
+    swedish: "Swedish",
+  },
+  sv: {
+    title: "Välkommen",
+    mood: "Humör",
+    journal: "Dagbok",
+    wins: "Framsteg",
+    settings: "Inställningar",
+    language: "Språk",
+    english: "Engelska",
+    swedish: "Svenska",
+  },
+};
 
-//The languages supported right now
+// Supported language types
 type Language = "en" | "sv";
 
-//Whats shared
+// What the context will share
 interface LanguageContextType {
-    lang: Language;
-    setLang: (lang: Language) => void;
-    t: typeof en; // current languege either en or sv
+  lang: Language;
+  setLang: (lang: Language) => void;
+  t: (typeof translations)["en"]; 
 }
 
-//context that will be used throughout the app
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+// Actual context
+const LanguageContext = createContext<LanguageContextType | undefined>(
+  undefined
+);
 
-//Wrapper around app to provide language data
+// Wraps the app to provide language state + strings
+export const LanguageProvider = ({ children }: { children: ReactNode }) => {
+  const [lang, setLang] = useState<Language>("en");
 
-export const LanguageProvider = ({ children }: {children: ReactNode}) => {
-    const [lang, setLang] = useState<Language>("en");
+  const value: LanguageContextType = {
+    lang,
+    setLang,
+    t: translations[lang],
+  };
 
-    const value: LanguageContextType = {
-        lang,
-        setLang,
-        t: translations[lang],
-    };
-    return (
-        < LanguageContext.Provider value={value}>
-            {children}
-            </LanguageContext.Provider>
-    );
-}
-//Custom hook to easily use translations in components
+  return (
+    <LanguageContext.Provider value={value}>
+      {children}
+    </LanguageContext.Provider>
+  );
+};
 
+// Custom hook to use language state in components
 export const useLanguage = () => {
-    const context = useContext(LanguageContext);
-    if (!context){
-        throw new Error("useLanguage must be used within a LanguageProvider");
-    }
-    return context;
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error("useLanguage must be used within a LanguageProvider");
+  }
+  return context;
 };
