@@ -1,7 +1,24 @@
 {
-  "title": "Välkommen till Regulate Me",
-  "description": "En mjuk plats för reflektion, känslospårning och små segrar.",
+  "title": "Välkommen",
+  "mood": "Humör",
+  "journal": "Dagbok",
+  "wins": "Framsteg",
+  "settings": "Inställningar",
   "language": "Språk",
   "english": "Engelska",
-  "swedish": "Svenska"
+  "swedish": "Svenska",
+  "goToMood": "Gå till Humörspåraren",
+
+  "quotes": [
+    "Du är inte sen. Du är precis i tid för din egen utveckling.",
+    "Små steg räknas. Mjuk framsteg är fortfarande framsteg.",
+    "Det är okej att pausa. Vila är inte ett misslyckande — det är en helig del av tillväxt.",
+    "Du har överlevt varje svår stund hittills. Det är styrka, inte svaghet.",
+    "Du behöver inte ha allt klart för att fortsätta.",
+    "Din mjukhet är inte en svaghet. Det är din superkraft.",
+    "Detta utrymme är ditt. Du får känna allt — och ändå vara okej.",
+    "Dagens framgång kan vara så enkel som att andas och börja om. Det är tillräckligt.",
+    "Ditt värde mäts inte i produktivitet. Du är värdefull bara genom att vara här.",
+    "Du får växa i din egen takt — och ändå vara stolt över vem du är."
+  ]
 }

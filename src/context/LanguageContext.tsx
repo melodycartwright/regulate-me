@@ -1,47 +1,34 @@
 "use client"; // Needed for context updates in Next.js App Router
 
 import React, { createContext, useContext, useState, ReactNode } from "react";
+import en from "@/locales/en.json";
+import sv from "@/locales/sv.json";
 
-// Translations directly in the file (might move to json file later)
-const translations = {
-  en: {
-    title: "Welcome",
-    mood: "Mood",
-    journal: "Journal",
-    wins: "Wins",
-    settings: "Settings",
-    language: "Language",
-    english: "English",
-    swedish: "Swedish",
-  },
-  sv: {
-    title: "Välkommen",
-    mood: "Humör",
-    journal: "Dagbok",
-    wins: "Framsteg",
-    settings: "Inställningar",
-    language: "Språk",
-    english: "Engelska",
-    swedish: "Svenska",
-  },
-};
-
-// Supported language types
+// Supported languages
 type Language = "en" | "sv";
 
-// What the context will share
+// All possible translation structure (from en.json & sv.json)
+type Translations = typeof en;
+
+// What we share through the context
 interface LanguageContextType {
   lang: Language;
   setLang: (lang: Language) => void;
-  t: (typeof translations)["en"]; 
+  t: Translations;
 }
 
-// Actual context
+// Load translation data from JSON
+const translations: Record<Language, Translations> = {
+  en,
+  sv,
+};
+
+// Create context
 const LanguageContext = createContext<LanguageContextType | undefined>(
   undefined
 );
 
-// Wraps the app to provide language state + strings
+// Provider that wraps the app
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [lang, setLang] = useState<Language>("en");
 
@@ -58,7 +45,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
-// Custom hook to use language state in components
+// Custom hook to use the language context
 export const useLanguage = () => {
   const context = useContext(LanguageContext);
   if (!context) {

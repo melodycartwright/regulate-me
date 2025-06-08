@@ -1,7 +1,23 @@
 {
-  "title": "Welcome to Regulate Me",
-  "description": "A soft place to reflect, track your moods, and celebrate small wins.",
+  "title": "Welcome",
+  "mood": "Mood",
+  "journal": "Journal",
+  "wins": "Wins",
+  "settings": "Settings",
   "language": "Language",
   "english": "English",
-  "swedish": "Swedish"
+  "swedish": "Swedish",
+   "goToMood": "Go to Mood Tracker",
+  "quotes": [
+    "You are not behind. You are not late. You are right on time for your own unfolding.",
+    "Small steps count. Gentle progress is still progress.",
+    "It’s okay to pause. Rest is not failure — it’s a sacred part of growth.",
+    "You’ve survived every hard moment so far. That’s strength, not weakness.",
+    "You don’t have to have it all figured out to keep going.",
+    "Your softness is not a flaw. It’s your superpower.",
+    "This space is yours. You’re allowed to feel everything — and still be okay.",
+    "Today’s win might be as simple as breathing and beginning again. That’s enough.",
+    "Your worth isn’t measured by productivity. You are valuable just by being here.",
+    "You are allowed to grow at your own pace — and still be proud of who you are."
+  ]
 }
