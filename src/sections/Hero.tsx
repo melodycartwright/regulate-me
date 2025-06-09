@@ -32,7 +32,7 @@ export default function Hero() {
 
         <Link
           href="/mood"
-          className="mt-6 inline-block px-6 py-3 bg-black text-white rounded-2xl text-sm font-medium transition hover:bg-gray-800"
+          className="mt-8 inline-block px-6 py-3 bg-black text-white rounded-2xl text-sm font-medium transition hover:bg-gray-800 fade-in "
         >
           {t.goToMood}
         </Link>
